@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
   //we dont use .map cz buttons is a nodelist not an array
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
+
+      document.getElementById("water-drop").play()
       //on click we want to start the game like enter either 0 or *
       //if the button is not empty update btn content to be current player which is  astar
 
@@ -29,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
         //will be at * so since * is equivalent to * current player will be updated to 0 during the next click
         currentPlayer = currentPlayer === "*" ? "0" : "*";
       } else {
-        alert("please click another empty button");
+        alert("please click on an empty button");
       }
     });
   });
@@ -58,14 +60,16 @@ document.addEventListener("DOMContentLoaded", function () {
         a.textContent === b.textContent &&
         a.textContent === c.textContent
       ) {
-        alert(`player ${currentPlayer} has won the game`);
+        alert(`Player ${currentPlayer} has won the game 🎉🎉🎉`);
+
+        
 
         reset();
       }
       // ...button converts nodelist in to an array .evry checks if all buttons meet the condition
 
       if ([...buttons].every((button) => button.textContent !== "")) {
-        alert("its a draw");
+        alert("its a draw 😃😃 ");
 
         reset();
       }
@@ -82,4 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
       button.textContent = "";
     });
   }
+
+
+  localStorage.setItem('key', 'value')
 });
